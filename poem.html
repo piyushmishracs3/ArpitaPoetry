@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Poem | Arpita Poetry</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/feather-icons"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1><a href="index.html" class="logo">Arpita Poetry 🖋️ </a></h1>
+    <nav><button id="theme-toggle" title="Toggle Theme"><i data-feather="moon"></i></button></nav>
+  </header>
+  <main>
+    <article class="poem-detail">
+      <h2 id="poem-title"></h2>
+      <pre id="poem-content"></pre>
+      <p class="note" id="poem-note"></p>
+      <div class="share">
+        <button onclick="sharePoem()">📤 Share</button>
+        <a href="index.html" class="back">← Back to Poems</a>
+      </div>
+    </article>
+  </main>
+  <footer><p>© 2025 Arpita Mishra</p></footer>
+  <script src="poems.js"></script>
+  <script src="script.js"></script>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const id = parseInt(params.get("id"));
+    const poem = poems[id];
+    if (poem) {
+      document.title = poem.title + " | Piyush’s Poetry";
+      document.getElementById("poem-title").textContent = poem.title;
+      document.getElementById("poem-content").textContent = poem.text;
+      document.getElementById("poem-note").textContent = poem.note || "";
+    }
+    function sharePoem() {
+      if (navigator.share) {
+        navigator.share({
+          title: poem.title,
+          text: poem.text.substring(0, 100) + "...",
+          url: window.location.href
+        });
+      } else { alert("Sharing not supported on this browser"); }
+    }
+    feather.replace();
+  </script>
+</body>
+</html>

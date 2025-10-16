@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arpita Poetry</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/feather-icons"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1> Arpita Poetry 🖋️</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="#about">About</a>
+      <button id="theme-toggle" title="Toggle Theme"><i data-feather="moon"></i></button>
+    </nav>
+  </header>
+  <main>
+    <section class="intro">
+      <h2>Whispers of emotion, fragments of silence, words that breathe.</h2>
+    </section>
+    <section class="search-filter">
+      <input type="text" id="searchInput" placeholder="Search poems..." />
+      <select id="themeSelect"><option value="">All Themes</option></select>
+    </section>
+    <section id="poems" class="poems-grid"></section>
+    <section id="about" class="about">
+      <h2>About Me</h2>
+      <p>I'm Arpita Mishra — exploring emotion and stillness through poetry.
+         Each poem captures a fleeting thought, an untold rhythm of life.</p>
+    </section>
+  </main>
+  <footer><p>© 2025 Arpita Mishra | Crafted with ❤️ & coffee</p></footer>
+  <script src="poems.js"></script>
+  <script src="script.js"></script>
+  <script>feather.replace()</script>
+</body>
+</html>
